@@ -71,6 +71,20 @@
                                 <nil key="textColor"/>
                                 <nil key="highlightedColor"/>
                             </label>
+                            <label opaque="NO" userInteractionEnabled="NO" contentMode="left" horizontalHuggingPriority="251" verticalHuggingPriority="251" fixedFrame="YES" text="poison" textAlignment="center" lineBreakMode="tailTruncation" baselineAdjustment="alignBaselines" adjustsFontSizeToFit="NO" translatesAutoresizingMaskIntoConstraints="NO" id="CWe-rc-MeB">
+                                <rect key="frame" x="20" y="556" width="374" height="21"/>
+                                <autoresizingMask key="autoresizingMask" flexibleMaxX="YES" flexibleMaxY="YES"/>
+                                <fontDescription key="fontDescription" type="system" pointSize="18"/>
+                                <nil key="textColor"/>
+                                <nil key="highlightedColor"/>
+                            </label>
+                            <label opaque="NO" userInteractionEnabled="NO" contentMode="left" horizontalHuggingPriority="251" verticalHuggingPriority="251" fixedFrame="YES" text="grass" textAlignment="center" lineBreakMode="tailTruncation" baselineAdjustment="alignBaselines" adjustsFontSizeToFit="NO" translatesAutoresizingMaskIntoConstraints="NO" id="cc7-9B-6d0">
+                                <rect key="frame" x="20" y="596" width="374" height="21"/>
+                                <autoresizingMask key="autoresizingMask" flexibleMaxX="YES" flexibleMaxY="YES"/>
+                                <fontDescription key="fontDescription" type="system" pointSize="18"/>
+                                <nil key="textColor"/>
+                                <nil key="highlightedColor"/>
+                            </label>
                         </subviews>
                         <viewLayoutGuide key="safeArea" id="BEP-Bh-vvt"/>
                         <color key="backgroundColor" systemColor="systemBackgroundColor"/>
@@ -79,6 +93,8 @@
                     <connections>
                         <outlet property="nameLabel" destination="cDf-dC-cWO" id="aSD-D0-siU"/>
                         <outlet property="numberLabel" destination="Ahy-3V-42f" id="Ucn-q8-JP6"/>
+                        <outlet property="type1Label" destination="CWe-rc-MeB" id="zDE-DZ-DLV"/>
+                        <outlet property="type2Label" destination="cc7-9B-6d0" id="HSB-h9-XgT"/>
                     </connections>
                 </viewController>
                 <placeholder placeholderIdentifier="IBFirstResponder" id="low-2n-8jk" userLabel="First Responder" customClass="UIResponder" sceneMemberID="firstResponder"/>

@@ -9,15 +9,40 @@ import UIKit
 
 class ViewController: UITableViewController {
 
-    let pokemon = [
-        Pokemon(name: "Glumanda", number: 1),
-        Pokemon(name: "Bisasam", number: 2),
-        Pokemon(name: "Schiggy", number: 3)
-    ]
+    var pokemon: [PokeApiPokemon] = []
+    
+    func capitalize(text: String) -> String {
+        text.prefix(1).uppercased() + text.dropFirst()
+    }
     
     // How many sections do we have?
     override func numberOfSections(in tableView: UITableView) -> Int {
         return 1
+    }
+    
+    override func viewDidLoad() {
+        super.viewDidLoad()
+        
+        let url = URL(string: "https://pokeapi.co/api/v2/pokemon?limit=151")
+        guard let u = url else {
+            return
+        }
+        
+        URLSession.shared.dataTask(with: u) { (data, response, error) in
+            guard let data = data else {
+                return
+            }
+            
+            do {
+                let pokemonList = try JSONDecoder().decode(PokeApiResponse.self, from: data)
+                self.pokemon = pokemonList.results
+                DispatchQueue.main.async {
+                    self.tableView.reloadData()
+                }
+            } catch let error {
+                print("\(error)")
+            }
+        }.resume()
     }
     
     // How many rows has our section?
@@ -29,7 +54,7 @@ class ViewController: UITableViewController {
     override func tableView(_ tableView: UITableView, cellForRowAt indexPath: IndexPath) -> UITableViewCell {
         
         let cell = tableView.dequeueReusableCell(withIdentifier: "PokemonCell", for: indexPath)
-        cell.textLabel?.text = pokemon[indexPath.row].name
+        cell.textLabel?.text = capitalize(text: pokemon[indexPath.row].name)
         return cell
     }
     
